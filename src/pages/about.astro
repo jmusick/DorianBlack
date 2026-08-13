@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ALBUM, TRACK_COUNT } from "../data/album";
+import { ACTIVE_SOCIALS, CONTACT_EMAIL, SITE_NAME, SITE_URL } from "../config/site";
+
+const canonicalUrl = `${SITE_URL}/about/`;
+
+/**
+ * Placeholder bio — written in third person per the design system's voice
+ * guidance, but not approved copy. Replace before launch.
+ */
+const bio = [
+	`${SITE_NAME} makes synth-pop for the hours most records sleep through — the stretch between last call and first light, when a city is at its loudest and its loneliest at the same time.`,
+	`The debut album, ${ALBUM.title}, runs ${TRACK_COUNT} tracks across a single night: the doors opening, the look across the room, the walk home, and the morning that doesn't care what happened.`,
+	`Neon synths, close vocals, and a drum machine that never quite lets up.`,
+];
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "MusicGroup",
+	name: SITE_NAME,
+	url: SITE_URL,
+	genre: "Synth-pop",
+	description: bio[0],
+	email: CONTACT_EMAIL,
+};
+---
+
+<Layout
+	title={`About — ${SITE_NAME}`}
+	description={bio[0]}
+	canonicalUrl={canonicalUrl}
+	structuredData={structuredData}
+	active="about"
+>
+	<div class="page">
+		<p class="eyebrow">About</p>
+		<h1 style="margin-top: var(--space-3)">{SITE_NAME}</h1>
+
+		<div
+			class="panel"
+			style="margin-top: var(--space-7); display: flex; flex-direction: column; gap: var(--space-5)"
+		>
+			{bio.map((paragraph) => <p class="lede">{paragraph}</p>)}
+		</div>
+
+		<hr class="rule" />
+
+		<section>
+			<p class="eyebrow">Contact</p>
+			<h2 style="margin-top: var(--space-3)">Bookings &amp; press</h2>
+			<p style="margin-top: var(--space-4)">
+				<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+			</p>
+		</section>
+
+		{ACTIVE_SOCIALS.length > 0 && (
+			<section class="section">
+				<p class="eyebrow">Elsewhere</p>
+				<div class="hero-cta" style="margin-top: var(--space-4)">
+					{ACTIVE_SOCIALS.map((s) => (
+						<a class="btn btn-ghost" href={s.href} target="_blank" rel="noopener noreferrer">
+							{s.label}
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+	</div>
+</Layout>

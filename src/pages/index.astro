@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import cover from "../assets/after-tonight-cover.png";
+import { ALBUM, ALBUM_RUNTIME, TRACK_COUNT } from "../data/album";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "../config/site";
+
+const canonicalUrl = `${SITE_URL}/`;
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "MusicGroup",
+	name: SITE_NAME,
+	url: SITE_URL,
+	genre: "Synth-pop",
+	description: SITE_TAGLINE,
+	album: {
+		"@type": "MusicAlbum",
+		name: ALBUM.title,
+		numTracks: TRACK_COUNT,
+		byArtist: { "@type": "MusicGroup", name: SITE_NAME },
+	},
+};
+
+/** First four tracks, as a taste on the home page. */
+const preview = ALBUM.tracks.slice(0, 4);
+---
+
+<Layout
+	title={`${SITE_NAME} — ${ALBUM.title}`}
+	description={ALBUM.blurb}
+	canonicalUrl={canonicalUrl}
+	structuredData={structuredData}
+	active="home"
+>
+	<section class="hero">
+		<Image class="hero-art" src={cover} alt="" widths={[900, 1600]} loading="eager" />
+		<div class="hero-scrim" aria-hidden="true"></div>
+
+		<div class="hero-inner">
+			<span class="badge badge-filled">{ALBUM.kind} · {ALBUM.status}</span>
+			<h1 class="hero-title">{ALBUM.title}</h1>
+			<p class="hero-sub">{ALBUM.blurb}</p>
+			<div class="hero-cta">
+				<a class="btn btn-primary btn-lg" href="/music/">Hear the album</a>
+				<a class="btn btn-secondary btn-lg" href="/about/">About Dorian Black</a>
+			</div>
+		</div>
+	</section>
+
+	<div class="page">
+		<section>
+			<p class="eyebrow">The record</p>
+			<h2>{TRACK_COUNT} tracks · {ALBUM_RUNTIME}</h2>
+			<p class="lede" style="margin-top: var(--space-4)">{SITE_TAGLINE}</p>
+		</section>
+
+		<section class="section">
+			<p class="eyebrow">Opening side</p>
+			<ol class="tracklist" style="margin-top: var(--space-5)">
+				{preview.map((track) => (
+					<li class="track">
+						<span class="track-n">{String(track.n).padStart(2, "0")}</span>
+						<span>
+							<span class="track-title">{track.title}</span>
+							<span class="track-note">{track.note}</span>
+						</span>
+						<span class="track-time">{track.duration}</span>
+					</li>
+				))}
+			</ol>
+			<p style="margin-top: var(--space-6)">
+				<a class="btn btn-ghost" href="/music/">Full tracklist</a>
+			</p>
+		</section>
+	</div>
+</Layout>

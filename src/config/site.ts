@@ -23,8 +23,8 @@ export interface SocialLink {
 }
 
 export const SOCIALS: SocialLink[] = [
-	{ label: "Spotify", href: null, icon: "simple-icons:spotify" },
-	{ label: "Apple Music", href: null, icon: "simple-icons:applemusic" },
+	{ label: "Spotify", href: "https://open.spotify.com/artist/1e0DxuIekYHipCZlcNwVVt", icon: "simple-icons:spotify" },
+	{ label: "Apple Music", href: "https://music.apple.com/us/artist/dorian-black/6801309828", icon: "simple-icons:applemusic" },
 	{ label: "YouTube", href: null, icon: "simple-icons:youtube" },
 	{ label: "SoundCloud", href: null, icon: "simple-icons:soundcloud" },
 	{ label: "Instagram", href: null, icon: "simple-icons:instagram" },

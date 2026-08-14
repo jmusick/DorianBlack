@@ -18,10 +18,9 @@ export interface Track {
 export const ALBUM = {
 	title: "After Tonight",
 	kind: "Album",
-	status: "Coming soon",
+	status: "Out now",
 	year: 2026,
-	/** Null until a release date is locked. */
-	releaseDate: null as string | null,
+	releaseDate: "2026-08-14" as string | null,
 	blurb:
 		"Twelve songs about the hours between last call and sunrise — crowded rooms, reckless attraction, and the quiet that arrives when the party finally ends.",
 	tracks: [

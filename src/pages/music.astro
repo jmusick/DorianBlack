@@ -45,7 +45,15 @@ const structuredData = {
 					<span>{ALBUM.kind}</span>
 					<span>{TRACK_COUNT} tracks</span>
 					<span>{ALBUM_RUNTIME}</span>
-					<span>{ALBUM.releaseDate ?? `${ALBUM.year} · date TBA`}</span>
+					<span>
+						{ALBUM.releaseDate
+							? new Date(`${ALBUM.releaseDate}T00:00:00`).toLocaleDateString("en-US", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})
+							: `${ALBUM.year} · date TBA`}
+					</span>
 				</div>
 
 				{ACTIVE_SOCIALS.length > 0 ? (

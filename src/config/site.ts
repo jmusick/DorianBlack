@@ -1,11 +1,14 @@
-export const SITE_VERSION = "0.1.0";
+import pkg from "../../package.json";
+
+/** Sourced from package.json — bump the version there (and tag the release to match) to update this everywhere. */
+export const SITE_VERSION: string = pkg.version;
 
 /**
  * Single source of truth for the public origin. Change this (and `site` in
  * astro.config.mjs) once the real domain is registered — nothing else
  * hardcodes a URL.
  */
-export const SITE_URL = "https://dorianblack.example";
+export const SITE_URL = "https://dorianblack.com";
 export const SITE_NAME = "Dorian Black";
 export const SITE_TAGLINE = "Synth-pop from the city after dark.";
 
@@ -36,4 +39,4 @@ export const ACTIVE_SOCIALS = SOCIALS.filter(
 );
 
 /** Contact address shown on the About page. */
-export const CONTACT_EMAIL = "hello@dorianblack.example";
+export const CONTACT_EMAIL = "hello@dorianblack.com";

@@ -19,10 +19,9 @@ Design tokens are ported verbatim into [public/universal.css](public/universal.c
 
 ## Content status
 
-- No streaming links yet ([src/config/site.ts](src/config/site.ts) `SOCIALS` — all `href: null`; header/footer/Music page auto-hide until filled in).
+- Spotify and Apple Music links are live; YouTube, SoundCloud, Instagram, and TikTok are still unset ([src/config/site.ts](src/config/site.ts) `SOCIALS` — `href: null` entries auto-hide from the header/footer/Music page until filled in).
 - No confirmed release date (`src/data/album.ts` `ALBUM.releaseDate`).
 - Track order in `src/data/album.ts` is a proposed sequence, not a confirmed master order.
-- Domain is a placeholder (`dorianblack.example` in `astro.config.mjs` and `src/config/site.ts`) — update both once registered.
 
 ## Development
 

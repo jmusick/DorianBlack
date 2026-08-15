@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { ACTIVE_SOCIALS, SITE_NAME } from "../config/site";
+import { ACTIVE_SOCIALS, SITE_NAME, SITE_VERSION } from "../config/site";
 
 const year = new Date().getFullYear();
 ---
@@ -24,5 +24,5 @@ const year = new Date().getFullYear();
 		</nav>
 	)}
 
-	<span>© {year} {SITE_NAME}</span>
+	<span>© {year} {SITE_NAME} · v{SITE_VERSION} · <a href="/privacy-policy/">Privacy Policy</a></span>
 </footer>

@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://dorianblack.example',
+	site: 'https://dorianblack.com',
 	server: {
 		host: true,
 		port: 4321,

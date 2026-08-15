@@ -22,8 +22,9 @@ const structuredData = {
 	},
 };
 
-/** First four tracks, as a taste on the home page. */
-const preview = ALBUM.tracks.slice(0, 4);
+const spotifyAlbumId = ALBUM.spotifyUrl.match(/open\.spotify\.com\/album\/([A-Za-z0-9]+)/)?.[1];
+const spotifyEmbedUrl = `https://open.spotify.com/embed/album/${spotifyAlbumId}?utm_source=generator&theme=0`;
+const spotifyEmbedHeight = Math.min(760, Math.max(352, 170 + ALBUM.tracks.length * 34));
 ---
 
 <Layout
@@ -56,22 +57,41 @@ const preview = ALBUM.tracks.slice(0, 4);
 		</section>
 
 		<section class="section">
-			<p class="eyebrow">Opening side</p>
-			<ol class="tracklist" style="margin-top: var(--space-5)">
-				{preview.map((track) => (
-					<li class="track">
-						<span class="track-n">{String(track.n).padStart(2, "0")}</span>
-						<span>
-							<span class="track-title">{track.title}</span>
-							<span class="track-note">{track.note}</span>
-						</span>
-						<span class="track-time">{track.duration}</span>
-					</li>
-				))}
-			</ol>
-			<p style="margin-top: var(--space-6)">
-				<a class="btn btn-ghost" href="/music/">Full tracklist</a>
-			</p>
+			<p class="eyebrow">Listen now</p>
+			<div class="spotify-embed" style={`height: ${spotifyEmbedHeight}px`}>
+				<iframe
+					src={spotifyEmbedUrl}
+					width="100%"
+					height={spotifyEmbedHeight}
+					frameborder="0"
+					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+					loading="lazy"
+					title={`${ALBUM.title} on Spotify`}
+				></iframe>
+			</div>
 		</section>
 	</div>
 </Layout>
+
+<style>
+	.page {
+		padding-bottom: var(--space-7);
+	}
+
+	.section {
+		margin-top: var(--space-6);
+	}
+
+	.spotify-embed {
+		margin-top: var(--space-5);
+		border: 1px solid var(--border-hairline);
+		border-radius: 0.5rem;
+		overflow: hidden;
+		background: var(--bg-surface);
+	}
+
+	.spotify-embed iframe {
+		display: block;
+		border: 0;
+	}
+</style>

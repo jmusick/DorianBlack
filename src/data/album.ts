@@ -23,6 +23,7 @@ export const ALBUM = {
 	releaseDate: "2026-08-14" as string | null,
 	blurb:
 		"Twelve songs about the hours between last call and sunrise — crowded rooms, reckless attraction, and the quiet that arrives when the party finally ends.",
+	spotifyUrl: "https://open.spotify.com/album/1b10wj76W5exnmt1wkNlbW",
 	tracks: [
 		{ n: 1, title: "Everybody Wants Tonight", duration: "4:23", note: "The doors open." },
 		{ n: 2, title: "Bad Idea, Good Time", duration: "3:36", note: "Knowing better, going anyway." },

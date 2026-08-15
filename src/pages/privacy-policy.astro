@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from "../config/site";
+
+const canonicalUrl = `${SITE_URL}/privacy-policy/`;
+const lastUpdated = "August 15, 2026";
+---
+
+<Layout
+	title={`Privacy Policy — ${SITE_NAME}`}
+	description={`Privacy Policy for the ${SITE_NAME} website.`}
+	canonicalUrl={canonicalUrl}
+>
+	<div class="page">
+		<p class="eyebrow">Legal</p>
+		<h1 style="margin-top: var(--space-3)">Privacy Policy</h1>
+		<p style="margin-top: var(--space-2); color: var(--ink-3)">
+			Last updated: {lastUpdated}
+		</p>
+
+		<div class="panel policy" style="margin-top: var(--space-7)">
+			<section class="policy-block">
+				<h2>Overview</h2>
+				<p class="lede">
+					This website (<strong>{SITE_URL.replace("https://", "")}</strong>) is a static
+					site for {SITE_NAME}. It has no user accounts, no contact form, and sets no
+					cookies of its own. This policy covers what happens when you visit, including
+					the third-party services the site links to or embeds.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Information We Collect</h2>
+				<p class="lede">
+					We don't operate a contact form, newsletter signup, or account system, so we
+					don't directly collect names, emails, or other personal information through
+					this site. If you email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>,
+					we'll have whatever you choose to include in that message.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Hosting</h2>
+				<p class="lede">
+					This site is hosted on <strong>Cloudflare Pages</strong>. Like most web hosts,
+					Cloudflare's infrastructure processes standard request data (such as IP
+					address, user agent, and request timing) to serve pages and protect against
+					abuse. We don't run analytics or tracking scripts of our own on top of this.
+					See the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Third-Party Services</h2>
+				<p class="lede">
+					This site loads or links to a small number of third-party services that may
+					collect data independently under their own privacy policies:
+				</p>
+				<ul class="policy-list">
+					<li>
+						<strong>Google Fonts</strong> — used to load the site's typefaces (Audiowide,
+						Rajdhani, Dancing Script). Google may log requests made to their font
+						servers, including IP address. See the
+						<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+					</li>
+					<li>
+						<strong>Spotify</strong> — the homepage embeds a Spotify album player so
+						you can preview the record without leaving the site, and we link to our
+						Spotify artist profile elsewhere. Spotify's embedded player may set its own
+						cookies and collect usage data once you interact with it. See the
+						<a href="https://www.spotify.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Spotify Privacy Policy</a>.
+					</li>
+					<li>
+						<strong>Apple Music</strong> — we link to our Apple Music artist profile.
+						Apple may collect data if you visit their platform. See the
+						<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Privacy Policy</a>.
+					</li>
+				</ul>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Cookies</h2>
+				<p class="lede">
+					This site does not set any cookies itself. The embedded Spotify player on the
+					homepage may set its own cookies once you interact with it, subject to
+					Spotify's privacy policy above. You can control or delete cookies through your
+					browser settings.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>External Links</h2>
+				<p class="lede">
+					This site links to external platforms (Spotify, Apple Music, and others as
+					they're added). We're not responsible for the privacy practices or content of
+					those sites.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Changes to This Policy</h2>
+				<p class="lede">
+					We may update this policy as the site changes — for example, if new streaming
+					or social platforms are added. Any changes will be reflected on this page with
+					an updated date.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Contact</h2>
+				<p class="lede">
+					For any privacy-related questions, reach out at
+					<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+				</p>
+			</section>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.policy {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.policy-block h2 {
+		font-size: var(--text-h3);
+		margin: 0 0 var(--space-3);
+	}
+
+	.policy .rule {
+		margin: var(--space-6) 0;
+	}
+
+	.policy-list {
+		margin: var(--space-4) 0 0;
+		padding-left: 1.25em;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+		color: var(--ink-2);
+		font-size: var(--text-body-lg);
+		line-height: var(--lh-body);
+	}
+</style>

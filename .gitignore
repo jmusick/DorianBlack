@@ -20,6 +20,11 @@ pnpm-debug.log*
 .env.*
 !.env.example
 
+# Local secrets for Cloudflare Pages Functions.
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -13,6 +13,16 @@ export const SITE_NAME = "Dorian Black";
 export const SITE_TAGLINE = "Synth-pop from the city after dark.";
 
 /**
+ * Cloudflare Turnstile site key for the contact form. The key is public by
+ * design and committed so production cannot silently render a form-less page
+ * when a build variable is missing. The matching secret must only exist in
+ * Cloudflare or .dev.vars. PUBLIC_TURNSTILE_SITE_KEY remains an optional
+ * override for another deployment.
+ */
+export const TURNSTILE_SITE_KEY: string =
+	import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "0x4AAAAAAER8KqCPg1Pn7fHL";
+
+/**
  * Social and streaming profiles.
  *
  * Nothing is released yet, so every entry is `href: null`. The header and
@@ -38,5 +48,5 @@ export const ACTIVE_SOCIALS = SOCIALS.filter(
 	(s): s is SocialLink & { href: string } => s.href !== null,
 );
 
-/** Contact address shown on the About page. */
+/** Contact-form destination and fallback address when Turnstile is unavailable. */
 export const CONTACT_EMAIL = "hello@dorianblack.com";

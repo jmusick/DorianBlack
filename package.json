@@ -1,7 +1,7 @@
 {
   "name": "dorian-black",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -17,5 +17,9 @@
     "@iconify-json/simple-icons": "^1.2.81",
     "astro": "^6.2.2",
     "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260816.1",
+    "typescript": "^7.0.2"
   }
 }

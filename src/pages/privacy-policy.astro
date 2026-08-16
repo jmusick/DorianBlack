@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from "../config/site";
 
 const canonicalUrl = `${SITE_URL}/privacy-policy/`;
-const lastUpdated = "August 15, 2026";
+const lastUpdated = "August 16, 2026";
 ---
 
 <Layout
@@ -23,9 +23,10 @@ const lastUpdated = "August 15, 2026";
 				<h2>Overview</h2>
 				<p class="lede">
 					This website (<strong>{SITE_URL.replace("https://", "")}</strong>) is a static
-					site for {SITE_NAME}. It has no user accounts, no contact form, and sets no
-					cookies of its own. This policy covers what happens when you visit, including
-					the third-party services the site links to or embeds.
+					site for {SITE_NAME}. It has no user accounts, advertising, or mailing list. It
+					has one contact form and sets no tracking cookies of its own. This policy covers
+					what happens when you visit, including the third-party services the site uses,
+					links to, or embeds.
 				</p>
 			</section>
 
@@ -34,10 +35,23 @@ const lastUpdated = "August 15, 2026";
 			<section class="policy-block">
 				<h2>Information We Collect</h2>
 				<p class="lede">
-					We don't operate a contact form, newsletter signup, or account system, so we
-					don't directly collect names, emails, or other personal information through
-					this site. If you email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>,
-					we'll have whatever you choose to include in that message.
+					The site collects only what you choose to submit through the contact form: your
+					name, email address, optional subject, and message. That information is used to
+					receive and respond to your enquiry. It is not added to a mailing list, sold, or
+					stored in a website database.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Contact Form</h2>
+				<p class="lede">
+					When you send the <a href="/contact/">contact form</a>, Cloudflare Turnstile
+					checks the submission for automated abuse. Cloudflare receives your IP address
+					and technical signals from your browser for that check. The form contents are
+					then sent through Cloudflare Email Sending to the site's inbox and kept only as
+					long as needed for the resulting correspondence.
 				</p>
 			</section>
 
@@ -64,6 +78,11 @@ const lastUpdated = "August 15, 2026";
 				</p>
 				<ul class="policy-list">
 					<li>
+						<strong>Cloudflare Turnstile and Email Sending</strong> — used to protect the
+						contact form from automated abuse and deliver submitted messages. See the
+						<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.
+					</li>
+					<li>
 						<strong>Google Fonts</strong> — used to load the site's typefaces (Audiowide,
 						Rajdhani, Dancing Script). Google may log requests made to their font
 						servers, including IP address. See the
@@ -89,9 +108,10 @@ const lastUpdated = "August 15, 2026";
 			<section class="policy-block">
 				<h2>Cookies</h2>
 				<p class="lede">
-					This site does not set any cookies itself. The embedded Spotify player on the
-					homepage may set its own cookies once you interact with it, subject to
-					Spotify's privacy policy above. You can control or delete cookies through your
+					This site does not set advertising or analytics cookies. The embedded Spotify
+					player may set its own cookies once you interact with it, subject to Spotify's
+					privacy policy above. Cloudflare may use strictly necessary storage while
+					protecting the contact form. You can control or delete cookies through your
 					browser settings.
 				</p>
 			</section>
@@ -123,8 +143,9 @@ const lastUpdated = "August 15, 2026";
 			<section class="policy-block">
 				<h2>Contact</h2>
 				<p class="lede">
-					For any privacy-related questions, reach out at
-					<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+					For privacy-related questions, use the <a href="/contact/">contact form</a>. If
+					the form is unavailable, the page displays
+					<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> as a fallback.
 				</p>
 			</section>
 		</div>

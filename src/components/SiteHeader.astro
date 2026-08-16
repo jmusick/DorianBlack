@@ -5,7 +5,7 @@ import logo from "../assets/logo-transparent.png";
 import { ACTIVE_SOCIALS, SITE_NAME } from "../config/site";
 
 interface Props {
-	active?: "home" | "music" | "about";
+	active?: "home" | "music" | "about" | "contact";
 }
 
 const { active = "home" } = Astro.props;
@@ -33,6 +33,7 @@ const { active = "home" } = Astro.props;
 				<a class={active === "home" ? "active" : undefined} href="/">Home</a>
 				<a class={active === "music" ? "active" : undefined} href="/music/">Music</a>
 				<a class={active === "about" ? "active" : undefined} href="/about/">About</a>
+				<a class={active === "contact" ? "active" : undefined} href="/contact/">Contact</a>
 			</nav>
 
 			{ACTIVE_SOCIALS.length > 0 && (

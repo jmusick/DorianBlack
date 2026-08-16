@@ -20,6 +20,8 @@ Design tokens are ported verbatim into [public/universal.css](public/universal.c
 ## Content status
 
 - Spotify and Apple Music links are live; YouTube, SoundCloud, Instagram, and TikTok are still unset ([src/config/site.ts](src/config/site.ts) `SOCIALS` — `href: null` entries auto-hide from the header/footer/Music page until filled in).
+- The Contact page, Turnstile widget, and Email Sending Function are configured;
+  the API token and Turnstile secret remain encrypted Pages secrets.
 - No confirmed release date (`src/data/album.ts` `ALBUM.releaseDate`).
 - Track order in `src/data/album.ts` is a proposed sequence, not a confirmed master order.
 
@@ -27,7 +29,9 @@ Design tokens are ported verbatim into [public/universal.css](public/universal.c
 
 ```bash
 npm install
-npm run dev
+npm run dev                                  # pages only; Functions are not served
+npm run build
+npx wrangler pages dev dist                 # includes /api/contact
 ```
 
 ## Build
@@ -39,8 +43,34 @@ npm run preview
 
 ## Deploy
 
-Cloudflare Pages, via `wrangler.toml`. Connect the repo in the Cloudflare dashboard, or:
+Cloudflare Pages project `dorianblack`, via `wrangler.toml`. The connected Git
+repository deploys automatically, or a local build can be published with:
 
 ```bash
 npx wrangler pages deploy dist
 ```
+
+## Contact form
+
+`POST /api/contact` is the site's only server-side route. The Cloudflare Pages
+Function in [`functions/api/contact.ts`](functions/api/contact.ts) verifies
+Turnstile and sends messages through the Cloudflare Email Sending REST API.
+
+Production configuration:
+
+| Location | Type | Name |
+| --- | --- | --- |
+| `wrangler.toml` `[vars]` | Plaintext | `CLOUDFLARE_ACCOUNT_ID` |
+| Pages project secret | Encrypted | `CLOUDFLARE_API_TOKEN` |
+| Pages project secret | Encrypted | `TURNSTILE_SECRET_KEY` |
+
+The API token needs `Email Sending: Edit` permission for the account. The
+Function defaults to `contact@dorianblack.com` as its verified sender and
+`hello@dorianblack.com` as its destination; `EMAIL_FROM_CONTACT` and
+`CONTACT_TO_EMAIL` can override those at runtime.
+
+The public Turnstile site key is committed in `src/config/site.ts` so the form
+cannot silently disappear when a build variable is missing.
+`PUBLIC_TURNSTILE_SITE_KEY` remains an optional build-time override. Copy
+`.dev.vars.example` to `.dev.vars` for local Function testing; never commit the
+populated file.

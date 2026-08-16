@@ -40,8 +40,22 @@ export const SOCIALS: SocialLink[] = [
 	{ label: "Apple Music", href: "https://music.apple.com/us/artist/dorian-black/6801309828", icon: "simple-icons:applemusic" },
 	{ label: "YouTube", href: null, icon: "simple-icons:youtube" },
 	{ label: "SoundCloud", href: null, icon: "simple-icons:soundcloud" },
-	{ label: "Instagram", href: null, icon: "simple-icons:instagram" },
-	{ label: "TikTok", href: null, icon: "simple-icons:tiktok" },
+	{
+		label: "Instagram",
+		href: "https://www.instagram.com/dorian.black.music/",
+		icon: "simple-icons:instagram",
+	},
+	{
+		label: "TikTok",
+		href: "https://www.tiktok.com/@dorian.black.band",
+		icon: "simple-icons:tiktok",
+	},
+	{
+		label: "Facebook",
+		href: "https://www.facebook.com/people/Dorian-Black/61593270907107/",
+		icon: "simple-icons:facebook",
+	},
+	{ label: "X", href: "https://x.com/dorianblackband", icon: "simple-icons:x" },
 ];
 
 export const ACTIVE_SOCIALS = SOCIALS.filter(

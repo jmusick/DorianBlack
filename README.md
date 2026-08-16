@@ -19,7 +19,10 @@ Design tokens are ported verbatim into [public/universal.css](public/universal.c
 
 ## Content status
 
-- Spotify and Apple Music links are live; YouTube, SoundCloud, Instagram, and TikTok are still unset ([src/config/site.ts](src/config/site.ts) `SOCIALS` — `href: null` entries auto-hide from the header/footer/Music page until filled in).
+- Spotify, Apple Music, Instagram, TikTok, Facebook, and X links are live;
+  YouTube and SoundCloud are still unset ([src/config/site.ts](src/config/site.ts)
+  `SOCIALS` — `href: null` entries auto-hide from the header/footer/Music page
+  until filled in).
 - The Contact page, Turnstile widget, and Email Sending Function are configured;
   the API token and Turnstile secret remain encrypted Pages secrets.
 - No confirmed release date (`src/data/album.ts` `ALBUM.releaseDate`).

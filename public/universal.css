@@ -666,6 +666,19 @@ img {
 	letter-spacing: var(--tracking-normal);
 }
 
+.footer-legal {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: var(--space-1);
+	text-align: right;
+}
+
+.footer-credit {
+	font-size: var(--text-micro);
+	color: var(--ink-3);
+}
+
 /* ── Responsive ──────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -736,6 +749,11 @@ img {
 
 	.site-footer {
 		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-legal {
+		align-items: center;
 		text-align: center;
 	}
 

@@ -4,15 +4,11 @@ Website for Dorian Black, a synth-pop recording artist. Debut album: **After Ton
 
 Built with [Astro](https://astro.build), deployed to [Cloudflare Pages](https://pages.cloudflare.com/). Stack and structure mirror the [Pneumaris](https://pneumarisband.com) site.
 
-## Design system
+## Visual style
 
-The visual language (retrowave synthwave: near-black backgrounds, magenta/violet/blue neon glow, Audiowide/Rajdhani/Dancing Script type) comes from the Dorian Black Design System, preserved at:
+The site's visual language uses near-black backgrounds, magenta/violet/blue neon glow, and Audiowide/Rajdhani/Dancing Script type. Its design tokens and component styles live in [public/universal.css](public/universal.css).
 
-`C:\Users\JD\Projects\Dorian Black\Design System`
-
-Design tokens are ported verbatim into [public/universal.css](public/universal.css); the header/button/badge/card rules are hand-written CSS equivalents of the kit's React components (`components/core/*.jsx`), since this site is static Astro rather than React.
-
-**Flagged in the design system, unresolved here too:**
+**Unresolved brand details:**
 - Fonts (Audiowide, Rajdhani, Dancing Script) are Google Fonts approximations, not confirmed brand fonts.
 - No real icon set — social icons currently use `astro-icon` + `simple-icons`, swap if a custom set shows up.
 - Bio copy on the About page is placeholder, written to match the documented voice guidelines, not approved artist copy.

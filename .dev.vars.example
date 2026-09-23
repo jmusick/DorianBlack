@@ -6,11 +6,13 @@ CLOUDFLARE_API_TOKEN=
 # Optional locally because wrangler.toml supplies the account ID.
 CLOUDFLARE_ACCOUNT_ID=fdabb6996edf7688fdaf7c8c367f7d08
 
-# The sender must belong to a connected and verified Email Sending domain.
-EMAIL_FROM_CONTACT=contact@dorianblack.com
+# Optional sender override. It must belong to a connected and verified Email
+# Sending domain. Leave blank to use the default in functions/api/contact.ts.
+EMAIL_FROM_CONTACT=
 
-# The inbox that receives form messages.
-CONTACT_TO_EMAIL=hello@dorianblack.com
+# Optional override for the inbox that receives form messages. Leave blank to
+# use the default in functions/api/contact.ts.
+CONTACT_TO_EMAIL=
 
 # Server-side secret for the Turnstile widget whose public key is provided at
 # build time through PUBLIC_TURNSTILE_SITE_KEY.

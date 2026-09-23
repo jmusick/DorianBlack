@@ -6,20 +6,15 @@ Guidance for AI coding agents working in this repo.
 
 Marketing site for Dorian Black, a synth-pop recording artist. Astro static
 site, deployed to Cloudflare Pages. See [README.md](README.md) for the
-design-system background and current content-status caveats (fonts, icons,
+visual-style background and current content-status caveats (fonts, icons,
 release info) — read it before touching visual styling or copy.
 
 ## Stack
 
 - **Astro** (static output), TypeScript, no UI framework — components are
   `.astro` files with inline `<style>`/`<script>`.
-- Styling is hand-written CSS. Design tokens live in
-  [public/universal.css](public/universal.css), ported verbatim from the
-  Dorian Black Design System (a separate React component kit preserved at
-  `C:\Users\JD\Projects\Dorian Black\Design System`). Header/button/badge/card
-  rules here are hand-written equivalents of that kit's components — keep
-  them visually in sync if the source design system changes, but there is no
-  code-level dependency between the two.
+- Styling is hand-written CSS. Design tokens and shared component styles live
+  in [public/universal.css](public/universal.css).
 - Icons via `astro-icon` + `@iconify-json/simple-icons` / `lucide`.
 - Deploy target: Cloudflare Pages project `dorianblack` via `wrangler.toml`
   (`npx wrangler pages deploy dist`).

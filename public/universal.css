@@ -1,9 +1,7 @@
 /* ──────────────────────────────────────────────────────────────
    Dorian Black — site stylesheet
 
-   Tokens are lifted verbatim from the Dorian Black Design System
-   (tokens/colors.css, typography.css, spacing.css, effects.css).
-   Component rules below are CSS ports of components/core/*.jsx.
+   Design tokens and shared component styles for the Astro site.
    ────────────────────────────────────────────────────────────── */
 
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap");

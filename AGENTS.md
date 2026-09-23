@@ -77,3 +77,13 @@ and, for anything visual, `npm run dev` + a browser check.
   a build with `wrangler pages dev dist` for end-to-end local tests.
 - Keep the contact-form data description in `privacy-policy.astro` accurate if
   fields, providers, storage, or retention behavior change.
+
+## Analytics and cookie consent
+
+- Google Analytics 4 is opt-in. `GA_MEASUREMENT_ID` lives in
+  `src/config/site.ts`; `src/components/CookieConsent.astro` loads gtag.js only
+  after the visitor accepts, and never in `astro dev` (`ANALYTICS_ID` is null
+  there). The footer's "Cookie choices" button (`data-cookie-preferences`)
+  reopens the banner. Same pattern as the SimonRook and Pneumaris sites.
+- Don't add a GA snippet to `<head>` directly — that would send data to Google
+  before consent. Keep the Analytics section of `privacy-policy.astro` in sync.

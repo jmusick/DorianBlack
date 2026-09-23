@@ -23,6 +23,26 @@ export const TURNSTILE_SITE_KEY: string =
 	import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "0x4AAAAAAER8KqCPg1Pn7fHL";
 
 /**
+ * Google Analytics 4 measurement ID.
+ *
+ * Set to null to remove analytics from the site entirely — Layout.astro then
+ * renders no consent banner and the footer drops its "Cookie choices" link.
+ * The tag itself only loads after the visitor accepts the banner; see
+ * src/components/CookieConsent.astro.
+ *
+ * This is third-party tracking, so src/pages/privacy-policy.astro describes it.
+ * Changing or removing it means updating that page in the same commit.
+ */
+export const GA_MEASUREMENT_ID: string | null = "G-V51M2PHK0H";
+
+/**
+ * The ID actually handed to the loader. Null in `astro dev` so local page views
+ * never reach the property — the consent banner still renders there so it can be
+ * worked on, it just has nothing to load when accepted.
+ */
+export const ANALYTICS_ID: string | null = import.meta.env.PROD ? GA_MEASUREMENT_ID : null;
+
+/**
  * Social and streaming profiles.
  *
  * Nothing is released yet, so every entry is `href: null`. The header and

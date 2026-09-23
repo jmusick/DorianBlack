@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { ACTIVE_SOCIALS, SITE_NAME, SITE_VERSION } from "../config/site";
+import { ACTIVE_SOCIALS, GA_MEASUREMENT_ID, SITE_NAME, SITE_VERSION } from "../config/site";
 
 const year = new Date().getFullYear();
 ---
@@ -25,7 +25,13 @@ const year = new Date().getFullYear();
 	)}
 
 	<div class="footer-legal">
-		<span>© {year} {SITE_NAME} · v{SITE_VERSION} · <a href="/privacy-policy/">Privacy Policy</a></span>
+		<span>© {year} {SITE_NAME} · v{SITE_VERSION} · <a href="/privacy-policy/">Privacy Policy</a>{GA_MEASUREMENT_ID && (
+			<>
+				{" · "}
+				{/* Reopens the consent banner — see src/components/CookieConsent.astro. */}
+				<button type="button" class="footer-link-button" data-cookie-preferences>Cookie choices</button>
+			</>
+		)}</span>
 		<span class="footer-credit">Site design by <a href="https://stonedragonmedia.com/" target="_blank" rel="noopener noreferrer">Stone Dragon Media, LLC</a></span>
 	</div>
 </footer>

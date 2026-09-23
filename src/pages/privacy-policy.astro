@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from "../config/site";
 
 const canonicalUrl = `${SITE_URL}/privacy-policy/`;
-const lastUpdated = "August 16, 2026";
+const lastUpdated = "September 23, 2026";
 ---
 
 <Layout
@@ -24,7 +24,7 @@ const lastUpdated = "August 16, 2026";
 				<p class="lede">
 					This website (<strong>{SITE_URL.replace("https://", "")}</strong>) is a static
 					site for {SITE_NAME}. It has no user accounts, advertising, or mailing list. It
-					has one contact form and sets no tracking cookies of its own. This policy covers
+					has one contact form, and uses Google Analytics only if you opt in. This policy covers
 					what happens when you visit, including the third-party services the site uses,
 					links to, or embeds.
 				</p>
@@ -63,8 +63,43 @@ const lastUpdated = "August 16, 2026";
 					This site is hosted on <strong>Cloudflare Pages</strong>. Like most web hosts,
 					Cloudflare's infrastructure processes standard request data (such as IP
 					address, user agent, and request timing) to serve pages and protect against
-					abuse. We don't run analytics or tracking scripts of our own on top of this.
+					abuse. Separately, the site uses Google Analytics, described below.
 					See the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.
+				</p>
+			</section>
+
+			<hr class="rule" />
+
+			<section class="policy-block">
+				<h2>Analytics</h2>
+				<p class="lede">
+					This site can use <strong>Google Analytics 4</strong> to count visits and see
+					which pages are viewed, but only if you agree. On your first visit a banner
+					asks. Until you accept, the Google tag is never loaded: no analytics cookies
+					are set and no request is made to Google, so nothing about your visit reaches
+					them. Declining takes one click, and the site works exactly the same either way.
+				</p>
+				<p class="lede" style="margin-top: var(--space-4)">
+					If you accept, the tag sets cookies (such as <code>_ga</code>) and reports
+					information about your visit to Google: pages viewed, approximate location
+					derived from your IP address, browser, device type, and referring site. Google
+					processes it under its own
+					<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">privacy terms</a>.
+					We use it to understand how the site is used, not to identify individuals or
+					for advertising, and it is not sold or combined with anything else collected here.
+				</p>
+				<p class="lede" style="margin-top: var(--space-4)">
+					Your answer is remembered in your browser's local storage, not in a cookie. You
+					can change it at any time with the <button
+						type="button"
+						class="inline-link-button"
+						data-cookie-preferences>Cookie choices</button
+					> link in the footer of any page. Withdrawing consent deletes the analytics
+					cookies and reloads the page. Ad and tracker blockers and Google's <a
+						href="https://tools.google.com/dlpage/gaoptout"
+						target="_blank"
+						rel="noopener noreferrer">opt-out add-on</a
+					> also work.
 				</p>
 			</section>
 
@@ -77,6 +112,11 @@ const lastUpdated = "August 16, 2026";
 					collect data independently under their own privacy policies:
 				</p>
 				<ul class="policy-list">
+					<li>
+						<strong>Google Analytics</strong> — loaded only if you accept the cookie
+						banner, as described above. See the
+						<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+					</li>
 					<li>
 						<strong>Cloudflare Turnstile and Email Sending</strong> — used to protect the
 						contact form from automated abuse and deliver submitted messages. See the
@@ -108,7 +148,8 @@ const lastUpdated = "August 16, 2026";
 			<section class="policy-block">
 				<h2>Cookies</h2>
 				<p class="lede">
-					This site does not set advertising or analytics cookies. The embedded Spotify
+					This site does not set advertising cookies. Google Analytics cookies are set
+					only if you accept them, as described above. The embedded Spotify
 					player may set its own cookies once you interact with it, subject to Spotify's
 					privacy policy above. Cloudflare may use strictly necessary storage while
 					protecting the contact form. You can control or delete cookies through your

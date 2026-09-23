@@ -677,6 +677,35 @@ img {
 	color: var(--ink-3);
 }
 
+/* Footer control that reads as a link — reopens the cookie consent banner. */
+.footer-link-button {
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	color: var(--link);
+	cursor: pointer;
+	transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-link-button:hover {
+	color: var(--link-hover);
+}
+
+/* Same idea inside body copy — reads as a link, acts as a control. */
+.inline-link-button {
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	color: var(--link);
+	cursor: pointer;
+}
+
+.inline-link-button:hover {
+	color: var(--link-hover);
+}
+
 /* ── Responsive ──────────────────────────────── */
 
 @media (max-width: 900px) {
